@@ -1,0 +1,65 @@
+body {
+    background-color: aquamarine;
+}
+
+#SignUp, #SignUpEmail, #SignUpPasswordInit, #SignUpPasswordRep, #SignUpSubmit, #SignUpUsername, 
+#MoveToLogin, 
+#Login, #LoginEmail, #LoginPasswordInit, #LoginSubmit, #MoveToSignUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#SignUp, #Login {
+    font-family: "Bradley Hand", cursive;
+    color: white;
+}
+
+#SignUpPasswordIn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#SignUpUsername {
+    margin-top: 20px;
+}
+
+#LoginEmail {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 20px;
+    border: 2px solid purple;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 2px;
+}
+
+#SignUpSubmit, #LoginSubmit {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    border-radius: 6px;
+    border-color: white;
+    color: white;
+    background-color: blueviolet;
+    box-shadow: 5px 5px 5px 2px black;
+}
+
+#MoveToLogin, #MoveToSignUp {
+    margin-top: 20px;
+}
+
+#SignUpButton, #LoginButton {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.75;
+}
+
+a:hover {
+    opacity: 0.5;
+}

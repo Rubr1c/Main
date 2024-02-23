@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Sign Up </title>
+        <link rel="stylesheet" type="text/css" href="LoginStyles.css">
+    </head>
+    <body>
+        <div id = "SignUp"> 
+            <h1 id = "SignUpText"> Sign Up </h1>
+        </div>
+        <form id = "SignUpForm" action="index.php" method="POST">
+            <div id = "SignUpInfo">
+                <div id = "SignUpEmail">
+                    <input id = "SignUpEmailIn" type="email" placeholder = "Email" required>
+                </div>
+                <div id = "SignUpUsername">
+                    <input id = "SignUpUsernameIn" placeholder = "Username" minlength="4" maxlength="15">
+                </div>
+                <div id = "SignUpPassword">
+                    <div id = "SignUpPasswordInit"> 
+                        <input id = "SignUpPasswordIn" type="password" placeholder = "Password" minlength="8" required> 
+                    </div>
+                    <div id = "SignUpPasswordRep">
+                        <input id = "SignUpPasswordInRep" type="password" placeholder = "Re-Enter Password" required>
+                    </div>
+                </div>
+            </div>
+            <div id = "SignUpSubmit">
+                <button id = "SignUpButton" type="submit"> Sign Up </button>
+            </div>
+            <div id = "MoveToLogin">
+                <a href="Login.html"> Already have an account? </a>
+            </div>
+        </form>
+    </body>
+</html>

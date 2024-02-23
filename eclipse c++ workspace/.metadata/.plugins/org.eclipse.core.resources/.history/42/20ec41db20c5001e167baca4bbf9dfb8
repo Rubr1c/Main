@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int x = n/2;
+    int j = 0;
+
+    for (int i = 1; i < x; i++) {
+        cout << " ";
+        do {
+        	j++;
+        	cout << "*";
+        }
+        while(j < i);
+
+        cout << "\n";
+    }
+
+
+    return 0;
+}

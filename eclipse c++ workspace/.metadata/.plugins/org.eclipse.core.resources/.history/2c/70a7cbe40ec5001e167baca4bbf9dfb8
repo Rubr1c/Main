@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int getUsers(int n) {
+	int x = 0;
+	int y = 1;
+	int z = 0;
+	for (int i = 0; i < n - 1; i++) {
+		z = x + 3*y;
+		x = y;
+		y = z;
+	}
+	return z;
+}
+
+int main() {
+	cout << getUsers(3);
+	return 0;
+}

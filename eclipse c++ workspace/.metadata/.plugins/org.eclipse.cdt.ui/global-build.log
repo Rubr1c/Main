@@ -1,0 +1,369 @@
+18:32:34 **** Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:32:41 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+18:32:48 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+18:33:15 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:33:24 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+18:38:19 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:38:25 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:38:43 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:39:02 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+18:39:18 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+18:39:51 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+18:40:56 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:41:05 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:41:16 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:43:45 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:43:58 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:44:07 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+18:48:11 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:30:20 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:35:39 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:36:06 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:36:41 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:37:13 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:37:22 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:45:08 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:46:44 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:51:59 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:52:20 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+20:53:54 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+21:05:16 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+21:06:45 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+21:08:30 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+21:08:41 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+make: Nothing to be done for 'all'.
+19:34:24 **** Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+19:37:14 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 
+19:49:40 **** Incremental Build of configuration Debug for project C++ Practice ****
+make all 
+Building file: ../src/C++ Practice.cpp
+Invoking: Cygwin C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/C++ Practice.d" -MT"src/C++ Practice.o" -o "src/C++ Practice.o" "../src/C++ Practice.cpp"
+Finished building: ../src/C++ Practice.cpp
+ 
+Building target: C++ Practice.exe
+Invoking: Cygwin C++ Linker
+g++  -o "C++ Practice.exe" ./src/C++\ Practice.o   
+Finished building target: C++ Practice.exe
+ 

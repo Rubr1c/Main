@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <title> Rubric Translator</title>
+    <link rel="stylesheet" type="text/css" href="RubricLang.css">
+    <body>
+        <div class="eng">
+            <h2 class="engHead"> English to Rubricese</h2>
+            <input id="EnglishInput"> <br>
+            <label for="RubricOutputText">Output: </label>
+            <div id="RubricOutputText"></div>
+            <button id="Translate" onclick="translateToRubric()"> Translate </button>
+        </div>
+        <div class="RubTrans">
+            <h2> Rubricese to English </h2>
+            <input id="RubricInput">  <br>
+            <label for="EnglishOutputText">Output: </label>
+            <div id="EnglishOutputText"></div>
+            <button id="Translate" onclick="translateToEnglish()"> Translate </button>
+        </div>
+        <script src="AliLang.js"></script>
+    </body>
+</html>

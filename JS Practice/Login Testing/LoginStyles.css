@@ -1,0 +1,117 @@
+body {
+    background-color: aquamarine;
+}
+
+#SignUp, #SignUpEmail, #SignUpPasswordInit, #SignUpPasswordRep, #SignUpSubmit, #SignUpUsername, 
+#MoveToLogin, 
+#Login, #LoginEmail, #LoginPasswordInit, #LoginSubmit, #MoveToSignUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#SignUp, #Login {
+    font-family: "Bradley Hand", cursive;
+    color: white;
+}
+
+#SignUpPasswordIn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#SignUpUsername {
+    margin-top: 20px;
+}
+
+#LoginEmail {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 20px;
+    border: 2px solid purple;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 2px;
+}
+
+#SignUpSubmit, #LoginSubmit {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    border-radius: 6px;
+    border-color: white;
+    color: white;
+    background-color: blueviolet;
+    box-shadow: 5px 5px 5px 2px black;
+}
+
+#MoveToLogin, #MoveToSignUp {
+    margin-top: 20px;
+}
+
+#SignUpButton, #LoginButton {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.75;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+
+.main{
+    width: 100%;
+    display: flex;
+}
+
+#dots{
+    width: 25px;
+}
+#headtop {
+    align-self: center;
+    margin-left: 50%;
+}
+#MoreMenuButton {
+    align-self: center;
+    margin-left: auto;
+}
+#Menu {
+    padding: 5px;
+}
+.MoreMenu {
+    background-color: white;
+    height: 1000px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    margin-left: auto;
+    transition-duration: 1s;
+    position: fixed;
+    right: -100%;
+    border-top-left-radius: 20px;
+}
+
+
+
+#MoreMenu p {
+    border-color: black;
+    padding: auto;
+    margin: auto;
+    font-size: large;
+    margin: 50px;
+    cursor: pointer;
+}
+
+#AboutText, #HomeText, #ContactText, #ServicesText {
+    border-color: black;
+    border-bottom-style: groove;
+    border-radius: 5px;
+    font-size: large;
+}
