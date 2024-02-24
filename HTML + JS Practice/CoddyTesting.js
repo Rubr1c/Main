@@ -427,7 +427,39 @@ function isSubset(a1, a2, n, m){
     }
 }
 
-console.log(isSubset([8, 4, 5, 3, 1, 7, 9], [5, 1, 3, 7, 9], 7, 5))
+function mergeSort(a1, a2) {
+    const sortedArr = [];
+    for (const num of a1) {
+        while (num >= a2[0]) {
+            sortedArr.push(a2[0]);
+            a2.shift();
+        }
+        sortedArr.push(num);
+    }
+    const sortedArrFinal = sortedArr.concat(a2);
+    return sortedArrFinal;
+}
+
+function isAlmostPalindrome(s) {
+    if (s.split('').reverse().join('') === s) {
+        return true;
+    } else {
+        let count = 0;
+        for (let i = 0; i < s.length / 2; i++) {
+            if (s[i] === s[s.length - 1 - i]) {
+                count++;
+            }
+        }
+        const match = parseInt(s.length / 2);
+        if (count === match) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+console.log(isAlmostPalindrome("racebar"));
 
 
 
