@@ -162,8 +162,6 @@
 // account1.transfer(account2, 100)
 
 
-
-
 class BankAccount {
     static count = 0;
     static users = {};
@@ -185,6 +183,7 @@ class BankAccount {
 
     addUserToDB(username, password, accountNumber, balance) {
         BankAccount.users[username] = [password, accountNumber, balance];
+        this.accountInfo = [username, accountNumber, balance]
     }
 
     addCount() {
@@ -228,10 +227,6 @@ class BankAccount {
             const count = this.addCount()
             this.accountNumber = count;
             this.balance = 0;
-            this.accountInfo.push(this.username);
-            this.accountInfo.push(this.password);
-            this.accountInfo.push(this.accountNumber);
-            this.accountInfo.push(this.balance);
             this.addUserToDB(username, password, this.accountNumber, this.balance);
             console.log("Account Created!");
             console.log("Username: ", this.username);
@@ -301,21 +296,21 @@ class Login extends BankAccount {
 
 
 
-const account1 = new BankAccount("Ali", "Zaghloul");
+// const account1 = new BankAccount("Ali", "Zaghloul");
 
-account1.makeAccount("Rubric", "Rubric22!")
+// account1.makeAccount("Rubric", "Rubric22!")
 
-const account2 = new BankAccount("Rubric", "zz");
+// const account2 = new BankAccount("Rubric", "zz");
 
-account2.makeAccount("Choo", "21@!aaaaaa")
+// account2.makeAccount("Choo", "21@!aaaaaa")
 
-const account3 = new Login("Rubric", "Rubric22!");
+// const account3 = new Login("Rubric", "Rubric22!");
 
-account2.deposit(100);
-account3.deposit(200);
+// account2.deposit(100);
+// account3.deposit(200);
 
-account2.transfer(account3, 50);
+// account2.transfer(account3, 50);
 
-account3.checkInfo()
+// account3.checkInfo()
 
 
