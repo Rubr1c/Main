@@ -90,11 +90,74 @@
 
 
 
-const account1 = new BankAccount(102939824, 5000);
+// const account1 = new BankAccount(102939824, 5000);
 
-account1.displayBalance();
-account1.deposit(500);
-account1.displayBalance();
+// account1.displayBalance();
+// account1.deposit(500);
+// account1.displayBalance();
 
 
+// class Employee {
+//     constructor(name, salary) {
+//         this.name = name; 
+//         this.salary = salary;
+//     }
+//     anualSalaray() {
+//         return this.salary * 12;
+//     }
+// }
+
+// class Manager extends Employee {
+//     constructor(name, salary, department) {
+//         super(name, salary);
+//         this.department = department;
+//     }
+
+//     anualSalaray() {
+//         const baseSalary = super.anualSalaray;
+//         const bonus = 0.1;
+//         return (bonus * baseSalary) + baseSalary;
+//     }
+// }
+
+
+// class BankAccount {
+//     constructor(accName, accNumber, accBalance) {
+//         this.accNumber = accNumber;
+//         this.accName = accName;
+//         this.accBalance = accBalance;
+//         console.log("Account Name:", this.accName)
+//         console.log("Account Number:", this.accNumber);
+//         console.log("Account Balance:", this.accBalance);
+//     }
+
+//     withdraw(ammount) {
+//         if (ammount <= this.accBalance) {
+//             this.accBalance -= ammount;
+//             console.log("Remaining Balance:", this.accBalance);
+//         } else {
+//             console.log("Not Enough Funds");
+//         }
+
+//     }
+
+//     deposit(ammount) {
+//         this.accBalance += ammount;
+//         console.log("Balance:", this.accBalance);
+//     }
+
+//     transfer(account, ammount) {
+//         if (ammount <= this.accBalance) {
+//             account.deposit(ammount);
+//             this.accBalance -= ammount;
+//             console.log("Balance: ", this.accBalance)
+//             console.log("Other balance: ", account.accBalance)
+//         }
+//     }
+// }
+
+// const account1 = new BankAccount("Ali", 1298487, 99999);
+// const account2 =  new BankAccount("Rubric", 1298292, 2000);
+
+// account1.transfer(account2, 100)
 
