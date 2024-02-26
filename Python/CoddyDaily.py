@@ -153,3 +153,26 @@ def recycling_robot(trash, categories):
         if i.lower() == trash.lower():
             return i
     return "Not recyclable"
+
+#Feb 26 2024
+
+def estimate_house_price(attributes):
+    cost = 100000
+    for keys in attributes:
+        if keys == "bedrooms":
+            cost += 5000 * attributes[keys]
+        elif keys == "bathrooms":
+            cost += 3000 * attributes[keys]
+        elif keys == "square_feet":
+            cost += 50 * attributes[keys]
+        elif keys == "garage":
+            if (attributes[keys]):
+                cost += 10000
+        elif keys == "neighborhood":
+            if (attributes[keys] == "Suburban"):
+                cost += 20000
+            elif (attributes[keys] == "Urban"):
+                cost += 15000
+            elif (attributes[keys] == "Rural"):
+                cost += 10000
+    return cost
