@@ -162,137 +162,137 @@
 // account1.transfer(account2, 100)
 
 
-class BankAccount {
-    static count = 0;
-    static users = {};
+// class BankAccount {
+//     static count = 0;
+//     static users = {};
     
 
-    constructor(fname, lname) {
-        this.fname = fname;
-        this.lname = lname;
-        this.accountInfo = [];
-    }
+//     constructor(fname, lname) {
+//         this.fname = fname;
+//         this.lname = lname;
+//         this.accountInfo = [];
+//     }
 
-    checkUserPassCombo(username, password) {
-        return BankAccount.users[username][0] == password;
-    }
+//     checkUserPassCombo(username, password) {
+//         return BankAccount.users[username][0] == password;
+//     }
 
-    checkUserExist(username) {
-        return BankAccount.users.hasOwnProperty(username);
-    }
+//     checkUserExist(username) {
+//         return BankAccount.users.hasOwnProperty(username);
+//     }
 
-    addUserToDB(username, password, accountNumber, balance) {
-        BankAccount.users[username] = [password, accountNumber, balance];
-        this.accountInfo = [username, accountNumber, balance]
-    }
+//     addUserToDB(username, password, accountNumber, balance) {
+//         BankAccount.users[username] = [password, accountNumber, balance];
+//         this.accountInfo = [username, accountNumber, balance]
+//     }
 
-    addCount() {
-        BankAccount.count++;
-        return BankAccount.count;
-    }
+//     addCount() {
+//         BankAccount.count++;
+//         return BankAccount.count;
+//     }
 
-    updateBalance(username, balance) {
-        BankAccount.users[username][2] = balance;
-    }
+//     updateBalance(username, balance) {
+//         BankAccount.users[username][2] = balance;
+//     }
 
-    makeAccount(username, password) {
-        if (BankAccount.users.hasOwnProperty(username)) {
-            console.log("username is already taken");
-            return;
-        }
-        let includesNumber = false;
-        const specialChar = "!@#$%^&*()-_=+"
-        let includesSpecial = false;
-        for (const char of password) {
-            if (!isNaN(char)) {
-                includesNumber = true;
-            }
-            if (specialChar.includes(char)) {
-                includesSpecial = true;
-            }
-        }
-        if (!includesSpecial) {
-            console.log("add special char to password");
-            return;
-        } 
-        if (!includesNumber) {
-            console.log("add number to password");
-            return;
-        }
+//     makeAccount(username, password) {
+//         if (BankAccount.users.hasOwnProperty(username)) {
+//             console.log("username is already taken");
+//             return;
+//         }
+//         let includesNumber = false;
+//         const specialChar = "!@#$%^&*()-_=+"
+//         let includesSpecial = false;
+//         for (const char of password) {
+//             if (!isNaN(char)) {
+//                 includesNumber = true;
+//             }
+//             if (specialChar.includes(char)) {
+//                 includesSpecial = true;
+//             }
+//         }
+//         if (!includesSpecial) {
+//             console.log("add special char to password");
+//             return;
+//         } 
+//         if (!includesNumber) {
+//             console.log("add number to password");
+//             return;
+//         }
 
 
-        if (username.length >= 4 && password.length >= 8) {
-            this.username = username;
-            this.password = password;
-            const count = this.addCount()
-            this.accountNumber = count;
-            this.balance = 0;
-            this.addUserToDB(username, password, this.accountNumber, this.balance);
-            console.log("Account Created!");
-            console.log("Username: ", this.username);
-            console.log("Account Number: ", this.accountNumber);
-            console.log("Balance: ", this.balance);
-        } else {
-            console.log("username or password is too short ");
-            return;
-        }
+//         if (username.length >= 4 && password.length >= 8) {
+//             this.username = username;
+//             this.password = password;
+//             const count = this.addCount()
+//             this.accountNumber = count;
+//             this.balance = 0;
+//             this.addUserToDB(username, password, this.accountNumber, this.balance);
+//             console.log("Account Created!");
+//             console.log("Username: ", this.username);
+//             console.log("Account Number: ", this.accountNumber);
+//             console.log("Balance: ", this.balance);
+//         } else {
+//             console.log("username or password is too short ");
+//             return;
+//         }
         
-    }
+//     }
 
-    checkInfo() {
-        console.log("Username: ", this.username);
-        console.log("Account Number: ", this.accountNumber);
-        console.log("Balance: ", this.balance);
-    }
+//     checkInfo() {
+//         console.log("Username: ", this.username);
+//         console.log("Account Number: ", this.accountNumber);
+//         console.log("Balance: ", this.balance);
+//     }
 
-    deposit(ammount) {
-        this.balance += ammount;
-        this.updateBalance(this.username, this.balance);
-        console.log("Deposited: ", ammount);
-        console.log("New Balance: ", this.balance);
-    }
+//     deposit(ammount) {
+//         this.balance += ammount;
+//         this.updateBalance(this.username, this.balance);
+//         console.log("Deposited: ", ammount);
+//         console.log("New Balance: ", this.balance);
+//     }
 
-    withdraw(ammount) {
-        if (this.balance >= ammount) {
-            this.balance -= ammount;
-            this.updateBalance(this.username, this.balance);
-            console.log("Withdrawed: ", ammount);
-            console.log("New Balance: ", this.balance);
-        } else {
-            console.log("Not Enough Funds");
-        }
-    }
+//     withdraw(ammount) {
+//         if (this.balance >= ammount) {
+//             this.balance -= ammount;
+//             this.updateBalance(this.username, this.balance);
+//             console.log("Withdrawed: ", ammount);
+//             console.log("New Balance: ", this.balance);
+//         } else {
+//             console.log("Not Enough Funds");
+//         }
+//     }
 
-    transfer(account, ammount) {
-        if (this.balance >= ammount) {
-            this.balance -= ammount;
-            this.updateBalance(this.username, this.balance);
-            console.log("New Balance: ", this.balance);
-            account.deposit(ammount);
-        }
-    }
+//     transfer(account, ammount) {
+//         if (this.balance >= ammount) {
+//             this.balance -= ammount;
+//             this.updateBalance(this.username, this.balance);
+//             console.log("New Balance: ", this.balance);
+//             account.deposit(ammount);
+//         }
+//     }
 
-}
+// }
 
-class Login extends BankAccount {
-    constructor(username, password) {
-        super();
-        if (super.checkUserExist(username)) {
-            if (super.checkUserPassCombo(username, password)) {
-                this.username = username;
-                this.password = password;
-                this.accountNumber = BankAccount.users[username][1];
-                this.balance = BankAccount.users[username][2];
-                console.log("Logged in!");
-            } else {
-                console.log("Incorrect password");
-            }
-        } else {
-            console.log("User Does Not Exist");
-        }
-    }
+// class Login extends BankAccount {
+//     constructor(username, password) {
+//         super();
+//         if (super.checkUserExist(username)) {
+//             if (super.checkUserPassCombo(username, password)) {
+//                 this.username = username;
+//                 this.password = password;
+//                 this.accountNumber = BankAccount.users[username][1];
+//                 this.balance = BankAccount.users[username][2];
+//                 console.log("Logged in!");
+//             } else {
+//                 console.log("Incorrect password");
+//             }
+//         } else {
+//             console.log("User Does Not Exist");
+//         }
+//     }
 
-}
+// }
 
 
 
@@ -314,3 +314,108 @@ class Login extends BankAccount {
 // account3.checkInfo()
 
 
+class POSAccount {
+    static admins = {};
+
+    static checkUserPassCombo(email, password) {
+        return POSAccount.admins[email][1] == password;
+    }
+
+    static checkUserExist(email) {
+        return POSAccount.admins.hasOwnProperty(email);
+    }
+
+    static login(email, password) {
+        if (POSAccount.checkUserExist(email)) {
+            if (POSAccount.checkUserPassCombo(email, password)) {
+                console.log("Logged in!");
+                return { email, username: POSAccount.admins[email][0] };
+            } else {
+                console.log("Incorrect password");
+                return null;
+            }
+        } else {
+            console.log("User Does Not Exist");
+            return null;
+        }
+    }
+
+    userData(username, key) {
+        let accountInfo = [username, key];
+    }
+
+    addUserToDB(username, password, key, email) {
+        POSAccount.admins[email] = [username, password, key];
+    }
+
+    constructor(email, username, password) {
+        let valid = false;
+        if (POSAccount.admins.hasOwnProperty(email)) {
+            console.log("this account already exists");
+            return;
+        }
+        let includesNumber = false;
+        const specialChar = "!@#$%^&*()-_=+"
+        let includesSpecial = false;
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const validEmail = emailRegex.test(email);
+
+        if (!validEmail) {
+            console.log("invalid email");
+            return;
+        }
+
+        for (const char of password) {
+            if (!isNaN(char)) {
+                includesNumber = true;
+            }
+            if (specialChar.includes(char)) {
+                includesSpecial = true;
+            }
+        }
+        if (!includesSpecial) {
+            console.log("add special char to password");
+            return;
+        } 
+        if (!includesNumber) {
+            console.log("add number to password");
+            return;
+        }
+
+
+        if (username.length >= 4 && password.length >= 8) {
+            this.username = username;
+            this.password = password;
+            this.email = email;
+            const key = crypto.randomUUID();
+            this.userData(username, key);
+            this.addUserToDB(username, password, key, email);
+            console.log("Account Created!");
+            console.log("Username: ", this.username);
+            console.log(key);
+            valid = true;
+            return valid;
+            
+        } else {
+            console.log("username or password is too short ");
+            return;
+        }
+    }
+}
+
+class Login {
+    constructor(email, password) {
+        const loggedInUser = POSAccount.login(email, password);
+        if (loggedInUser) {
+            this.email = loggedInUser.email;
+            this.username = loggedInUser.username;
+            this.password = password;
+        } 
+    }
+}
+
+
+
+const admin1 = new POSAccount("alizagh@gmail.com", "rubric", "dubwhb@1");
+
+const admint2 = new Login("alizagh@gmail.com", "dubwhb@1");

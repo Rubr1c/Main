@@ -10,9 +10,10 @@ class POSAccount {
     }
 
     constructor(email, username, password) {
+        let valid = false;
         if (POSAccount.admins.hasOwnProperty(email)) {
             alert("this account already exists");
-            return;
+            return valid;
         }
         let includesNumber = false;
         const specialChar = "!@#$%^&*()-_=+"
@@ -22,7 +23,7 @@ class POSAccount {
 
         if (!validEmail) {
             alert("invalid email");
-            return;
+            return valid;
         }
 
         for (const char of password) {
@@ -35,11 +36,11 @@ class POSAccount {
         }
         if (!includesSpecial) {
             alert("add special char to password");
-            return;
+            return valid;
         } 
         if (!includesNumber) {
             alert("add number to password");
-            return;
+            return valid;
         }
 
 
@@ -53,11 +54,13 @@ class POSAccount {
             console.log("Account Created!");
             console.log("Username: ", this.username);
             console.log(key);
+            valid = true;
+            return valid;
+            
         } else {
             alert("username or password is too short ");
-            return;
+            return valid;
         }
-        
     }
 }
 
@@ -75,16 +78,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function signUp() {
-    const email = document.getElementById("SignUpUsernameIn").value;
-    const username = document.getElementById("SignUpUsernameIn").value;
-    const password = document.getElementById("SignUpPasswordIn").value;
-    const passwordRep = document.getElementById("SignUpPasswordInRep").value;
 
-    if (password != passwordRep) {
-        alert("passwords do not match");
-        return;
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded and parsed");
+    const signUpButton = document.getElementById("SignUpButton");
+    if (signUpButton) {
+        signUpButton.addEventListener('click', function(event) {
+    
+            event.preventDefault();
+
+            const email = document.getElementById("SignUpEmailIn").value;
+            const username = document.getElementById("SignUpUsernameIn").value;
+            const password = document.getElementById("SignUpPasswordIn").value;
+            const passwordRep = document.getElementById("SignUpPasswordInRep").value;
+    
+            if (password != passwordRep) {
+                alert("passwords do not match");
+                return;
+            }
+            const newUser = new POSAccount(email, username, password);
+            
+            if (newUser == true) {
+                window.location.href = "Homepage.html";
+            }
+    
+    
+            console.log("Email:", email);
+            console.log("Password:", password);
+        });
+    } else {
+        console.error("Login button not found in the document.");
     }
-    const newUser = new POSAccount(email, username, password);
-    window.location.href = "Homepage.html";
-}
+});
