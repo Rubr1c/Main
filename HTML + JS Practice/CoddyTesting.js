@@ -34,10 +34,6 @@ function validateCard(cardNumber) {
     }
 }
 
-
-
-
-
 function substitution(key, message) {
     const check = message.toLowerCase();
     const alpha = "abcdefghijklmnopqrstuvwxyz";
@@ -56,7 +52,6 @@ function substitution(key, message) {
     }
     console.log(encrypted);
 }
-
 
 function findMissingNumber(arr) {
     // write your code below
