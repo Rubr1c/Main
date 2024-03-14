@@ -176,3 +176,18 @@ def estimate_house_price(attributes):
             elif (attributes[keys] == "Rural"):
                 cost += 10000
     return cost
+
+#Mar 14th 2024
+
+def generate_playlist(genres, available_songs, max_duration):
+    # Write code here
+    playlist = []
+    duration = 0
+    for i in available_songs:
+        for j in genres:
+            if i["genre"] == j and i["duration"] + duration <= max_duration:
+                playlist.append(i["title"])
+                duration += i["duration"]
+    return playlist
+
+
