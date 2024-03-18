@@ -87,22 +87,23 @@ using namespace std;
 //     cout  << "Country: " << p.getCountry()<<endl;
 // }
 
-class Shape {
-    public:
-        virtual double calculateArea() const = 0;
-        virtual double calculatePerimeter() const = 0;
-};
+// class Shape {
+//     public:
+//         virtual double calculateArea() const = 0;
+//         virtual double calculatePerimeter() const = 0;
+// };
 
-class Circle: public Shape {
-    private:
-        double radius;
-    public:
-        Circle(double r):radius(r){}
-        double calculateArea() const override {
-            return M_PI * radius * radius;
-        }
-        double calculatePerimeter() const override {
-            return 2 * M_PI * radius;
-        }
+// class Circle: public Shape {
+//     private:
+//         double radius;
+//     public:
+//         Circle(double r):radius(r){}
+//         double calculateArea() const override {
+//             return M_PI * radius * radius;
+//         }
+//         double calculatePerimeter() const override {
+//             return 2 * M_PI * radius;
+//         }
 
-};
+// };
+
