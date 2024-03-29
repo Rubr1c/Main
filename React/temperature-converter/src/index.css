@@ -1,0 +1,18 @@
+body {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+}
+
+.converterDiv {
+  margin-top: 50%;
+  display: inline-block;
+  background-color: white;
+}
+
+.converterDiv .formInput {
+  display: flex;
+  position: relative;
+  left: 70px;
+  margin-top: 10px;
+}
