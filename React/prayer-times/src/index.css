@@ -1,0 +1,67 @@
+body {
+    background-image: url(assets/mosque.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
+
+.prayer-time-list {
+    color: white;
+    list-style: none;
+    display: flex;
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.prayer-times {
+    margin: 10px;
+}
+
+
+.clock-container {
+    backdrop-filter: blur(5px);
+    width: 100vw;
+    padding: 10px 0;
+}
+
+.clock {
+    color: white;
+    font-size: 6rem;
+    font-weight: bold;
+    font-family: monospace;
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+
+}
+
+.next-prayer-container h2 {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
+
+.next-prayer-container p{
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+    width: 100vw;
+    text-shadow: 2px 2px 2px black;
+    font-size: 2rem;
+}
