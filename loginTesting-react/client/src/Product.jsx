@@ -13,6 +13,7 @@ function SubTabComponent() {
         quantity: 0
     }]);
 
+
     const downloadBarcode = (id) => {
         const node = document.getElementById(id);
         toPng(node)
@@ -52,6 +53,12 @@ function SubTabComponent() {
             .catch(err => console.log(err));
     }, []);
 
+
+
+
+
+
+
     return (
         <div>
             <div className="tabs">
@@ -89,6 +96,7 @@ function SubTabComponent() {
                             <button className='mt-2'>Edit</button>
                         </div>
                     ))}
+
                 </div>
             </div>
             <div id="purchase" className="tabcontent">
