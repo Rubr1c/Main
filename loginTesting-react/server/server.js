@@ -65,6 +65,19 @@ app.post('/Login', (req, res) => {
     })
 })
 
+app.get('/Products', (req, res) => {
+    const sql = 'SELECT * FROM products WHERE ownerUsername = ?';
+
+    db.query(sql, [req.session.username], (err, data) => {
+        if (err) {
+            console.error('Error fetching products:', err);
+            return res.status(500).json({ error: 'Error fetching products' });
+        }
+        return res.json(data);
+    });
+});
+
+
 app.get('/', (req, res) => {
     if(req.session.username) {
         return res.json({valid: true, username: req.session.username})

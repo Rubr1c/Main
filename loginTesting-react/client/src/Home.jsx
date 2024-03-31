@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import Product from "./Product.jsx";
 
 function Home() {
 
@@ -24,6 +25,7 @@ function Home() {
     return (
         <div>
             <h1>Welcome {name}</h1>
+            <Product/>
         </div>
     );
 }
