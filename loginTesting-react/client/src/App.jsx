@@ -1,7 +1,8 @@
 import Login from "./Login.jsx";
 import SignUp from "./SignUp.jsx";
-import Home from "./Home.jsx";
+import AdminHome from "./AdminHome.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EmployeeHome from "./EmployeeHome.jsx";
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
         <Routes>
             <Route path='/login' element={<Login />}/>
             <Route path='/signup' element={<SignUp />}/>
-            <Route path='/' element={<Home />}/>
+            <Route path='/home-admin' element={<AdminHome />}/>
+            <Route path='/home-employee' element={<EmployeeHome/>}/>
         </Routes>
       </BrowserRouter>
   )

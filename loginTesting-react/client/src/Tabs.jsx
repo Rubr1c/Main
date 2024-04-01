@@ -49,6 +49,20 @@ function Tabs() {
                     </div>
                 )}
             </div>
+            <div id='employee' className='tabcontent'>
+                {activeTab === 'employee' && (
+                    <div className='subtabs'>
+                        <button className={activeSubTab === 'add-employee-tab' ? 'subtablink active' : 'subtablink'}
+                                onClick={() => openSubTab('add-employee-tab')}>
+                            Add Employee
+                        </button>
+                        <button className={activeSubTab === 'existing-employee-tab' ? 'subtablink active' : 'subtablink'}
+                                onClick={() => openSubTab('existing-employee-tab')}>
+                            Employees
+                        </button>
+                    </div>
+                )}
+            </div>
             <SubTabs activeSubTab={activeSubTab}/>
         </div>
     )

@@ -52,33 +52,35 @@ app.post('/Login', (req, res) => {
     let sql = 'SELECT * FROM admins WHERE email = ? and password = ?'
 
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
-        if(err) {
+        if (err) {
             return res.json("Error");
         }
         if (data.length > 0) {
             req.session.username = data[0].username;
             req.session.admin_id = data[0].admin_id;
+            req.session.isAdmin = true;
 
-            return res.json({Login: true, Admin: true})
-        } else {
-            sql = 'SELECT * FROM employee WHERE email = ? and password = ?'
-            db.query(sql, [req.body.email, req.body.password], (err, data) => {
-                if(err) {
-                    return res.json("Error");
-                }
-                if (data.length > 0) {
-                    req.session.username = data[0].username;
-                    req.session.admin_id = data[0].admin_id;
-
-                    return res.json({Login: true, Admin: false})
-                } else {
-                    return res.json({Login: false, Admin: false})
-                }
-            })
-            return res.json({Login: false})
+            return res.json({ Login: true, Admin: true });
         }
-    })
-})
+
+        sql = 'SELECT * FROM employee WHERE email = ? and password = ?';
+        db.query(sql, [req.body.email, req.body.password], (err, data) => {
+            if (err) {
+                return res.json("Error");
+            }
+            if (data.length > 0) {
+                req.session.username = data[0].username;
+                req.session.admin_id = data[0].admin_id;
+                req.session.isAdmin = false;
+
+                return res.json({ Login: true, Admin: false });
+            }
+
+            return res.json({ Login: false, Admin: false });
+        });
+    });
+});
+
 
 app.get('/Products', (req, res) => {
     const sql = 'SELECT * FROM product WHERE admin_id = ?';
@@ -95,10 +97,78 @@ app.get('/Products', (req, res) => {
 
 app.get('/', (req, res) => {
     if(req.session.username) {
-        return res.json({valid: true, username: req.session.username})
+        if (req.session.isAdmin) {
+            return res.json({valid: true, username: req.session.username, admin: true})
+        } else {
+            return res.json({valid: true, username: req.session.username, admin: false})
+        }
     } else {
         return res.json({valid: false})
     }
+})
+
+app.post('/AddProduct', (req, res) => {
+    const sql = 'INSERT INTO product(`product_id`, `Name`, `Price`, `Quantity`, `admin_id`) VALUES (?)';
+    const values = [
+        req.body.product_id,
+        req.body.name,
+        req.body.price,
+        req.body.quantity,
+        req.session.admin_id
+    ]
+    db.query(sql, [values], (err, data) => {
+        if (err) {
+            console.error('Error adding product:', err);
+            return res.status(500).json({ error: 'Error adding product' });
+        }
+        return res.json({ success: true });
+    });
+});
+
+app.get('/CheckProductID', (req, res) => {
+    const sql = 'SELECT * FROM product WHERE product_id = ?';
+    db.query(sql, [req.query.product_id], (err, data) => {
+        if (err) {
+            console.error('Error checking product ID:', err);
+            return res.status(500).json({ error: 'Error checking product ID' });
+        } else if (data.length > 0) {
+            return res.json({ exists: true });
+        }
+        return res.json({ exists: false });
+    });
+})
+
+app.post('/AddEmployee', (req, res) => {
+    const sql = 'INSERT INTO employee(`username`, `email`, `password`, `admin_id`) VALUES (?)';
+    const values = [
+        req.body.username,
+        req.body.email,
+        req.body.password,
+        req.session.admin_id
+    ]
+    db.query(sql, [values], (err, data) => {
+        if (err) {
+            console.error('Error adding employee:', err);
+            return res.status(500).json({ error: 'Error adding employee' });
+        }
+        return res.json({ success: true });
+    });
+})
+
+app.get('/GetEmployees', (req, res) => {
+    const sql = 'SELECT * FROM employee WHERE admin_id = ?';
+    db.query(sql, [req.session.admin_id], (err, data) => {
+        if (err) {
+            console.error('Error fetching employees:', err);
+            return res.status(500).json({ error: 'Error fetching employees' });
+        }
+        return res.json(data);
+    });
+})
+
+app.get('/Logout', (req, res) => {
+    req.session.destroy();
+    return res.json({ success: true });
 })
 
 app.listen(8081, () =>{

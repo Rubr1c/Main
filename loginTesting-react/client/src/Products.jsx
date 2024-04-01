@@ -5,14 +5,8 @@ import { toPng } from 'html-to-image';
 
 function Products() {
 
-    axios.defaults.withCredentials = true;
 
-    const [products, setProducts] = useState([{
-        product_id: '',
-        Name: '',
-        Price: 0.00,
-        Quantity: 0
-    }]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8081/Products')
@@ -20,7 +14,7 @@ function Products() {
                 setProducts(res.data);
             })
             .catch(err => console.log(err));
-    }, []);
+    });
 
 
     const downloadBarcode = (id) => {

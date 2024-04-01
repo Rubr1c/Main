@@ -20,7 +20,7 @@ function Login() {
         axios.get('http://localhost:8081/')
             .then(res => {
                 if(res.data.valid) {
-                    navigate('/');
+                    navigate('/home-admin')
                 } else {
                     navigate('/login')
                 }
@@ -36,7 +36,11 @@ function Login() {
              axios.post('http://localhost:8081/Login', values)
                  .then(res => {
                      if (res.data.Login) {
-                         navigate('/');
+                         if (res.data.Admin) {
+                             navigate('/home-admin');
+                         } else {
+                             navigate('/home-employee');
+                         }
                      } else {
                          alert('no existing accounts')
                      }

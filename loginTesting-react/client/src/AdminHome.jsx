@@ -3,7 +3,7 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import Tabs from "./Tabs";
 
-function Home() {
+function AdminHome() {
 
     const [name, setName] = useState('');
 
@@ -14,9 +14,12 @@ function Home() {
     useEffect(() => {
         axios.get('http://localhost:8081/')
             .then(res => {
-                console.log(res.data);
                 if(res.data.valid) {
-                    setName(res.data.username);
+                    if(res.data.admin) {
+                        setName(res.data.username);
+                    } else {
+                        navigate('/home-employee')
+                    }
                 } else {
                     navigate('/login')
                 }
@@ -24,9 +27,20 @@ function Home() {
             .catch(err => console.log(err))
     }, []);
 
+    const handleLogout = () => {
+        axios.get('http://localhost:8081/Logout')
+            .then(res => {
+                if(res.data.success) {
+                    navigate('/login')
+                }
+            })
+            .catch(err => console.log(err))
+
+    }
     return (
         <div>
-            <h1>Welcome {name}</h1>
+            <h1 className='flex'>Welcome {name}</h1>
+            <button onClick={handleLogout}>Logout</button>
             <Tabs />
         </div>
     );
@@ -34,4 +48,4 @@ function Home() {
 
 
 
-export default Home;
+export default AdminHome;
