@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import Product from "./Product.jsx";
+import Tabs from "./Tabs";
 
 function Home() {
 
     const [name, setName] = useState('');
+
     const navigate = useNavigate();
 
     axios.defaults.withCredentials = true;
@@ -13,8 +14,9 @@ function Home() {
     useEffect(() => {
         axios.get('http://localhost:8081/')
             .then(res => {
+                console.log(res.data);
                 if(res.data.valid) {
-                    setName(res.data.username)
+                    setName(res.data.username);
                 } else {
                     navigate('/login')
                 }
@@ -25,7 +27,7 @@ function Home() {
     return (
         <div>
             <h1>Welcome {name}</h1>
-            <Product/>
+            <Tabs />
         </div>
     );
 }

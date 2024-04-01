@@ -29,12 +29,12 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'logintest',
+    database: 'pos',
     port: 3307
 })
 
 app.post('/SignUp', (req, res) => {
-    const sql = 'INSERT INTO user(`username`, `email`, `password`) VALUES (?)'
+    const sql = 'INSERT INTO admins(`username`, `email`, `password`) VALUES (?)'
     const values = [
         req.body.username,
         req.body.email,
@@ -49,7 +49,7 @@ app.post('/SignUp', (req, res) => {
 })
 
 app.post('/Login', (req, res) => {
-    const sql = 'SELECT * FROM user WHERE email = ? and password = ?'
+    let sql = 'SELECT * FROM admins WHERE email = ? and password = ?'
 
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
         if(err) {
@@ -57,18 +57,33 @@ app.post('/Login', (req, res) => {
         }
         if (data.length > 0) {
             req.session.username = data[0].username;
+            req.session.admin_id = data[0].admin_id;
 
-            return res.json({Login: true})
+            return res.json({Login: true, Admin: true})
         } else {
+            sql = 'SELECT * FROM employee WHERE email = ? and password = ?'
+            db.query(sql, [req.body.email, req.body.password], (err, data) => {
+                if(err) {
+                    return res.json("Error");
+                }
+                if (data.length > 0) {
+                    req.session.username = data[0].username;
+                    req.session.admin_id = data[0].admin_id;
+
+                    return res.json({Login: true, Admin: false})
+                } else {
+                    return res.json({Login: false, Admin: false})
+                }
+            })
             return res.json({Login: false})
         }
     })
 })
 
 app.get('/Products', (req, res) => {
-    const sql = 'SELECT * FROM products WHERE ownerUsername = ?';
+    const sql = 'SELECT * FROM product WHERE admin_id = ?';
 
-    db.query(sql, [req.session.username], (err, data) => {
+    db.query(sql, [req.session.admin_id], (err, data) => {
         if (err) {
             console.error('Error fetching products:', err);
             return res.status(500).json({ error: 'Error fetching products' });
