@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 const app = express();
 app.use(cors({
     origin: ['http://localhost:5173'],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "DELETE"],
     credentials: true
 }));
 app.use(express.json())
@@ -166,6 +166,99 @@ app.get('/GetEmployees', (req, res) => {
     });
 })
 
+app.get('/CheckProductIDs', (req, res) => {
+    const sql = 'SELECT * FROM product WHERE product_id = ? AND admin_id = ?';
+    db.query(sql, [req.query.product_id, req.session.admin_id], (err, data) => {
+        if (err) {
+            console.error('Error checking product ID:', err);
+            return res.status(500).json({ error: 'Error checking product ID' });
+        } else if (data.length > 0) {
+            return res.json({ exists: true, product: data[0].Name});
+        }
+        return res.json({ exists: false });
+    });
+})
+
+app.get('/GetItemPrice', (req, res) => {
+    const sql = 'SELECT Price FROM product WHERE product_id = ?';
+    db.query(sql, [req.query.product_id], (err, data) => {
+        if (err) {
+            console.error('Error fetching price:', err);
+            return res.status(500).json({ error: 'Error fetching price' });
+        }
+        return res.json(data[0]);
+    });
+})
+
+app.delete('/DeleteEmployee', (req, res) => {
+    const sql = 'DELETE FROM employee WHERE email = ?';
+    db.query(sql, [req.query.email], (err, data) => {
+        if (err) {
+            console.error('Error deleting employee:', err);
+            return res.status(500).json({ error: 'Error deleting employee' });
+        }
+        return res.json({ success: true });
+    });
+})
+
+app.post('/Checkout', async (req, res) => {
+    const validQuantities = [];
+
+    for (const item of req.body.items) {
+        const stock = await new Promise((resolve, reject) => {
+            db.query('SELECT Quantity FROM product WHERE product_id = ?', [item.product_id], (err, data) => {
+                if (err) {
+                    console.error('Error checking quantity:', err);
+                    reject(err);
+                } else {
+                    resolve(data[0].Quantity);
+                }
+            });
+        });
+
+        if (item.quantity > stock) {
+            return res.status(500).json({ error: 'Quantity not available' });
+        } else {
+            validQuantities.push(true);
+            const values = [
+                item.product_id,
+                item.productName,
+                req.session.admin_id,
+                item.quantity
+            ];
+            const sql = 'INSERT INTO sold_products(`product_id`, `name`, `admin_id`, `quantity`) VALUES (?)';
+            db.query(sql, [values], (err, data) => {
+                if (err) {
+                    console.error('Error inserting sold product:', err);
+                }
+            });
+
+            const updateSql = 'UPDATE product SET Quantity = Quantity - ? WHERE product_id = ?';
+            db.query(updateSql, [item.quantity, item.product_id], (err, data) => {
+                if (err) {
+                    console.error('Error updating quantity:', err);
+                }
+            });
+        }
+    }
+
+    if (validQuantities.length === req.body.items.length) {
+        return res.json({ success: true });
+    } else {
+        return res.status(500).json({ error: `Not Enough Stock` });
+    }
+});
+
+app.get('/SoldProducts', (req, res) => {
+    const sql = 'SELECT * FROM sold_products WHERE admin_id = ?';
+    db.query(sql, [req.session.admin_id], (err, data) => {
+        if (err) {
+            console.error('Error fetching sold products:', err);
+            return res.status(500).json({ error: 'Error fetching sold products' });
+        }
+        return res.json(data);
+    });
+})
 app.get('/Logout', (req, res) => {
     req.session.destroy();
     return res.json({ success: true });

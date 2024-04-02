@@ -5,10 +5,10 @@ import SubTabs from "./SubTabs.jsx";
 function Tabs() {
 
     const [activeTab, setActiveTab] = useState('sales');
-    const [activeSubTab, setActiveSubTab] = useState('add-product-tab');
+    const [activeSubTab, setActiveSubTab] = useState('');
     const openTab = (tabName) => {
         setActiveTab(tabName);
-        setActiveSubTab('add-product-tab');
+        setActiveSubTab('')
     };
 
     const openSubTab = (subTabName) => {
@@ -32,7 +32,15 @@ function Tabs() {
                 </button>
             </div>
             <div id="sales" className="tabcontent">
+                {activeTab === 'sales' && (
+                    <div className="subtabs">
+                        <button className={activeSubTab === 'sold-products-tab' ? 'subtablink active' : 'subtablink'}
+                                onClick={() => openSubTab('sold-products-tab')}>
+                            Sold Products
+                        </button>
 
+                    </div>
+                )}
             </div>
             <div id="product" className="tabcontent">
                 {activeTab === 'product' && (
@@ -56,13 +64,29 @@ function Tabs() {
                                 onClick={() => openSubTab('add-employee-tab')}>
                             Add Employee
                         </button>
-                        <button className={activeSubTab === 'existing-employee-tab' ? 'subtablink active' : 'subtablink'}
-                                onClick={() => openSubTab('existing-employee-tab')}>
+                        <button
+                            className={activeSubTab === 'existing-employee-tab' ? 'subtablink active' : 'subtablink'}
+                            onClick={() => openSubTab('existing-employee-tab')}>
                             Employees
                         </button>
                     </div>
                 )}
             </div>
+            <div id='purchase' className='tabcontent'>
+                {activeTab === 'purchase' && (
+                    <div className='subtabs'>
+                        <button className={activeSubTab === 'scan-product-tab' ? 'subtablink active' : 'subtablink'}
+                                onClick={() => openSubTab('scan-product-tab')}>
+                            Scan Product
+                        </button>
+                        <button className={activeSubTab === 'checkout-tab' ? 'subtablink active' : 'subtablink'}
+                                onClick={() => openSubTab('checkout-tab')}>
+                            Checkout
+                        </button>
+                    </div>
+                )}
+            </div>
+
             <SubTabs activeSubTab={activeSubTab}/>
         </div>
     )
