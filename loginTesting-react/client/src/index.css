@@ -18,3 +18,57 @@ th, td {
 table{
     width: 50%;
 }
+
+#edit-window {
+    position: fixed;
+    width: 700px;
+    height: 200px;
+    background: white;
+    border: 1px solid black;
+    padding: 10px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+#edit-emp-window {
+    position: fixed;
+    width: 700px;
+    height: 200px;
+    background: white;
+    border: 1px solid black;
+    padding: 10px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+.tablink {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.pb-vh {
+    padding-bottom: 10vh;
+}
+
+.tabcontent {
+    display: flex;
+    padding-left: 70px;
+    justify-content: flex-start;
+  }
+  
+  .subtabs {
+    display: flex;
+    gap: 10px;
+  }
+
+  #addproduct {
+    margin-left: 110px;
+  }

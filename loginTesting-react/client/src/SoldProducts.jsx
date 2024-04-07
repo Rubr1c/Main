@@ -16,7 +16,7 @@ function SoldProducts() {
 
     return (
         <>
-            <h2>Sold Products</h2>
+            <h2>Sold Products History</h2>
             <table>
                 <thead>
                 <tr>

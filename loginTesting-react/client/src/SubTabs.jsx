@@ -1,5 +1,5 @@
 import SoldProducts from "./SoldProducts.jsx";
-
+import ProductChart from "./ProductsChart.jsx";
 import Products from "./Products.jsx";
 import AddProduct from "./AddProduct.jsx";
 import AddEmployee from "./AddEmployee.jsx";
@@ -14,10 +14,14 @@ function SubTabs({ activeSubTab }) {
     const [checkoutItems, setCheckoutItems] = useState([]);
 
     return (
-        <div className='subtab'>
+        <div className='subtab bg-light border border-dark mx-5 pb-vh'>
             <div className='subtabcontent' id='sold-products-tab'
                  style={{display: activeSubTab === 'sold-products-tab' ? 'block' : 'none'}}>
                  <SoldProducts/>
+            </div>
+            <div className='subtabcontent' id='product-graph-tab'
+                style={{display: activeSubTab === 'product-graph-tab' ? 'block' : 'none'}}>
+                <ProductChart/>
             </div>
             <div className="subtabcontent" id="add-product-tab"
                  style={{display: activeSubTab === 'add-product-tab' ? 'block' : 'none'}}>
