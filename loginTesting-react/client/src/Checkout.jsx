@@ -14,11 +14,11 @@ function Checkout({ checkoutItems, setCheckoutItems }) {
               const response = await axios.get('http://localhost:8081/GetItemPrice', {
                 params: { product_id: item.product_id },
               });
-              return response.data.Price; // Extract Price from the response
+              return response.data.Price; 
 
             } catch (error) {
               console.log(error);
-              return 'Price Not Found'; // Default value if there's an error
+              return 'Price Not Found'; 
             }
           })
       );
@@ -30,7 +30,6 @@ function Checkout({ checkoutItems, setCheckoutItems }) {
   }, [checkoutItems]);
 
   useEffect(() => {
-    // Calculate total price when checkoutItems or productPrice changes
     let total = 0;
     checkoutItems.forEach((item, index) => {
       total += parseFloat((productPrice[index] * item.quantity).toFixed(2));
@@ -39,18 +38,17 @@ function Checkout({ checkoutItems, setCheckoutItems }) {
   }, [checkoutItems, productPrice]);
 
   const handleRemoveItem = (index) => {
-    // Create a copy of checkoutItems without the item at the specified index
+    
     const updatedItems = [...checkoutItems];
     updatedItems.splice(index, 1);
-    // Update checkoutItems state with the updated array
     setCheckoutItems(updatedItems);
   };
 
   const handleQuantityChange = (index, newQuantity) => {
-    // Create a copy of checkoutItems and update the quantity of the item at the specified index
+    
     const updatedItems = [...checkoutItems];
     updatedItems[index].quantity = newQuantity;
-    // Update checkoutItems state with the updated array
+    
     setCheckoutItems(updatedItems);
   };
 
@@ -87,12 +85,13 @@ function Checkout({ checkoutItems, setCheckoutItems }) {
                     type="number"
                     value={item.quantity}
                     min="1"
+                    className='border border-dark rounded-2'
                     onChange={(e) => handleQuantityChange(index, parseInt(e.target.value))}
                   />
                 </td>
                 <td>{parseFloat((productPrice[index] * item.quantity).toFixed(2))}</td>
                 <td>
-                  <button onClick={() => handleRemoveItem(index)}>Remove</button>
+                  <button onClick={() => handleRemoveItem(index)} className='btn btn-danger'>Remove</button>
                 </td>
               </tr>
           ))}
@@ -101,7 +100,7 @@ function Checkout({ checkoutItems, setCheckoutItems }) {
 
         <h2>Total: {totalPrice.toFixed(2)}</h2>
         <br/>
-        <button onClick={sellProducts}>Checkout</button>
+        <button onClick={sellProducts} className='btn btn-dark'>Checkout</button>
       </>
   );
 }
