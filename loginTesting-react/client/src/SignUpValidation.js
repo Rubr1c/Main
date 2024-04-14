@@ -4,23 +4,14 @@ function Validation(values) {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
-    if(values.username === '') {
-        error.username = 'Email is required';
-    }  else {
-        error.username = '';
-    }
-
-    if(values.email === '') {
-        error.email = 'Email is required';
-    } else if(!emailPattern.test(values.email)) {
+   
+    if(!emailPattern.test(values.email)) {
         error.email = 'Email is invalid';
     } else {
         error.email = '';
     }
 
-    if(values.password === '') {
-        error.password = 'Password is required';
-    } else if(!passwordPattern.test(values.password)) {
+    if(!passwordPattern.test(values.password)) {
         error.password = 'Password is invalid';
     } else {
         error.password = '';

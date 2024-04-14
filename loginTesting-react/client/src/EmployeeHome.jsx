@@ -20,7 +20,6 @@ function EmployeeHome() {
     axios
       .get("http://localhost:8081/")
       .then((res) => {
-        console.log(res.data);
         if (res.data.valid) {
           setName(res.data.username);
         } else {
@@ -68,7 +67,9 @@ function EmployeeHome() {
     <div>
       <div className="d-flex justify-content-between mx-5">
         <h2>Welcome {name}</h2>
-        <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+        <button onClick={handleLogout} className="btn btn-danger">
+          Logout
+        </button>
       </div>
       <div className="tabs">
         <button

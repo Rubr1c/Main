@@ -1,9 +1,15 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
+
 
 const app = express();
 app.use(
@@ -36,47 +42,103 @@ const db = mysql.createConnection({
   port: 3307,
 });
 
-app.post("/SignUp", (req, res) => {
-  const sql = "INSERT INTO admins(`username`, `email`, `password`) VALUES (?)";
-  const values = [req.body.username, req.body.email, req.body.password];
-  db.query(sql, [values], (err, data) => {
-    if (err) {
-      return res.json("Error");
+app.get("/", (req, res) => {
+  if (req.session.username) {
+    if (req.session.isAdmin) {
+      return res.json({
+        valid: true,
+        username: req.session.username,
+        admin: true,
+      });
+    } else {
+      return res.json({
+        valid: true,
+        username: req.session.username,
+        admin: false,
+      });
     }
-    return res.json;
+  } else {
+    return res.json({ valid: false });
+  }
+});
+
+app.post("/SignUp", (req, res) => {
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+    if (err) {
+      return res.json({ error: "Error" });
+    }
+    const sql =
+      "INSERT INTO admins(`username`, `email`, `password`) VALUES (?)";
+    const values = [req.body.username, req.body.email, hash];
+    db.query(sql, [values], (err, data) => {
+      if (err) {
+        return res.json({ error: "Error" });
+      }
+      return res.json({ success: true });
+    });
   });
 });
 
 app.post("/Login", (req, res) => {
-  let sql = "SELECT * FROM admins WHERE email = ? and password = ?";
+  let sql = "SELECT * FROM admins WHERE email = ?";
 
-  db.query(sql, [req.body.email, req.body.password], (err, data) => {
+  db.query(sql, [req.body.email], (err, data) => {
     if (err) {
       return res.json("Error");
     }
     if (data.length > 0) {
-      req.session.username = data[0].username;
-      req.session.admin_id = data[0].admin_id;
-      req.session.isAdmin = true;
+      bcrypt.compare(req.body.password, data[0].password, (err, result) => {
+        if (err) {
+          return res.json("Error");
+        }
+        if (result) {
+          req.session.username = data[0].username;
+          req.session.admin_id = data[0].admin_id;
+          req.session.isAdmin = true;
 
-      return res.json({ Login: true, Admin: true });
+          return res.json({ Login: true, Admin: true, error: "" });
+        } else {
+          return res.json({
+            Login: false,
+            Admin: false,
+            error: "Invalid password",
+          });
+        }
+      });
+    } else {
+      sql = "SELECT * FROM employee WHERE email = ?";
+      db.query(sql, [req.body.email], (err, data) => {
+        if (err) {
+          return res.json("Error");
+        }
+        if (data.length > 0) {
+          bcrypt.compare(req.body.password, data[0].password, (err, result) => {
+            if (err) {
+              return res.json("Error");
+            }
+            if (result) {
+              req.session.username = data[0].username;
+              req.session.admin_id = data[0].admin_id;
+              req.session.isAdmin = false;
+
+              return res.json({ Login: true, Admin: false, error: "" });
+            } else {
+              return res.json({
+                Login: false,
+                Admin: false,
+                error: "Invalid password",
+              });
+            }
+          });
+        } else {
+          return res.json({
+            Login: false,
+            Admin: false,
+            error: "No existing accounts",
+          });
+        }
+      });
     }
-
-    sql = "SELECT * FROM employee WHERE email = ? and password = ?";
-    db.query(sql, [req.body.email, req.body.password], (err, data) => {
-      if (err) {
-        return res.json("Error");
-      }
-      if (data.length > 0) {
-        req.session.username = data[0].username;
-        req.session.admin_id = data[0].admin_id;
-        req.session.isAdmin = false;
-
-        return res.json({ Login: true, Admin: false });
-      }
-
-      return res.json({ Login: false, Admin: false });
-    });
   });
 });
 
@@ -99,29 +161,9 @@ app.delete("/DeleteProduct", (req, res) => {
       console.error("Error deleting product:", err);
       return res.status(500).json({ error: "Error deleting product" });
     }
-    console.log(req.query.product_id)
+    console.log(req.query.product_id);
     return res.json({ success: true });
   });
-});
-
-app.get("/", (req, res) => {
-  if (req.session.username) {
-    if (req.session.isAdmin) {
-      return res.json({
-        valid: true,
-        username: req.session.username,
-        admin: true,
-      });
-    } else {
-      return res.json({
-        valid: true,
-        username: req.session.username,
-        admin: false,
-      });
-    }
-  } else {
-    return res.json({ valid: false });
-  }
 });
 
 app.post("/AddProduct", (req, res) => {
@@ -157,20 +199,24 @@ app.get("/CheckProductID", (req, res) => {
 });
 
 app.post("/AddEmployee", (req, res) => {
-  const sql =
-    "INSERT INTO employee(`username`, `email`, `password`, `admin_id`) VALUES (?)";
-  const values = [
-    req.body.username,
-    req.body.email,
-    req.body.password,
-    req.session.admin_id,
-  ];
-  db.query(sql, [values], (err, data) => {
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     if (err) {
-      console.error("Error adding employee:", err);
-      return res.status(500).json({ error: "Error adding employee" });
+      return res.json({ error: "Error" });
     }
-    return res.json({ success: true });
+    const sql =
+      "INSERT INTO employee(`username`, `password`, `email`, `admin_id`) VALUES (?)";
+    const values = [
+      req.body.username,
+      hash,
+      req.body.email,
+      req.session.admin_id,
+    ];
+    db.query(sql, [values], (err, data) => {
+      if (err) {
+        return res.json({ error: "Error" });
+      }
+      return res.json({ success: true });
+    });
   });
 });
 
@@ -304,20 +350,25 @@ app.post("/EditProduct", (req, res) => {
 });
 
 app.post("/EditEmployee", (req, res) => {
-  const sql =
-    "UPDATE employee SET username = ?, password = ?, email = ? WHERE admin_id = ?";
-  const values = [
-    req.body.username,
-    req.body.password,
-    req.body.email,
-    req.session.admin_id,
-  ];
-  db.query(sql, values, (err, data) => {
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     if (err) {
-      console.error("Error editing employee:", err);
-      return res.status(500).json({ error: "Error editing employee" });
+      return res.json({ error: "Error" });
     }
-    return res.json({ success: true });
+    const sql =
+      "UPDATE employee SET username = ?, password = ?, email = ? WHERE admin_id = ?";
+    const values = [
+      req.body.username,
+      hash,
+      req.body.email,
+      req.session.admin_id,
+    ];
+    db.query(sql, values, (err, data) => {
+      if (err) {
+        console.error("Error editing employee:", err);
+        return res.status(500).json({ error: "Error editing employee" });
+      }
+      return res.json({ success: true });
+    });
   });
 });
 
