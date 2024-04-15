@@ -18,15 +18,15 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.2",
     "html-to-image": "^1.11.11",
-    "javascript-barcode-reader": "^0.6.9",
+    "javascript-barcode-reader": "^0.3.1",
     "jsqr": "^1.4.0",
     "prop-types": "^15.8.1",
-    "quagga": "^0.6.16",
     "react": "^18.2.0",
     "react-barcode": "^1.5.1",
     "react-barcode-reader": "^0.0.2",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-qr-reader": "^3.0.0-beta-1",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import axios from "axios";
 
 function ProductScanner({ setCheckoutItems }) {
@@ -6,12 +7,12 @@ function ProductScanner({ setCheckoutItems }) {
   const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState(0);
 
+
   const addItemID = (e) => {
     setProduct_ID(e.target.value);
   };
 
-  const scanBarcode = () => {};
-
+  
   const findItemID = () => {
     axios
       .get("http://localhost:8081/CheckProductIDs", {
@@ -32,11 +33,13 @@ function ProductScanner({ setCheckoutItems }) {
 
   const addToCheckout = () => {
     if (product_id && quantity > 0) {
-
       const newItem = { product_id, productName, quantity };
       setCheckoutItems((prevItems) => [...prevItems, newItem]);
     }
   };
+
+ 
+
 
   return (
     <>
@@ -52,9 +55,10 @@ function ProductScanner({ setCheckoutItems }) {
         Find Item
       </button>
       <br />
-      <button onClick={scanBarcode} className="m-5 btn btn-dark">
+      <button className="m-5 btn btn-dark">
         Scan Barcode
       </button>
+      
       <p id="found-item" className="m-5 ps-5 text-success fw-bold">
         {productName}
       </p>

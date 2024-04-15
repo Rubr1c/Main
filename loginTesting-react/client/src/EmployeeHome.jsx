@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import SubTabs from "./SubTabs.jsx";
 
 function EmployeeHome() {
+  const [activeTab, setActiveTab] = useState("purchase");
+  const [activeSubTab, setActiveSubTab] = useState("scan-product-tab");
   const [name, setName] = useState("");
 
   const tablinkActive =
@@ -32,8 +34,7 @@ function EmployeeHome() {
     });
   };
 
-  const [activeTab, setActiveTab] = useState("purchase");
-  const [activeSubTab, setActiveSubTab] = useState("scan-product-tab");
+  
   const openTab = (tabName) => {
     setActiveTab(tabName);
     switch (tabName) {

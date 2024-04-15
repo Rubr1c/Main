@@ -4,19 +4,19 @@ import Validation from "./SignUpValidation.js";
 import axios from "axios";
 
 function SignUp() {
-  const [values, setValues] = useState({
+  const [user, setUser] = useState({
     username: "",
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
-  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(Validation(values));
+    setErrors(Validation(user));
     if (
       !errors.username &&
       !errors.email &&
@@ -24,7 +24,7 @@ function SignUp() {
       Object.keys(errors).length === 0
     ) {
       axios
-        .post("http://localhost:8081/SignUp", values)
+        .post("http://localhost:8081/SignUp", user)
         .then((res) => {
           if (res.data.success) navigate("/login");
         })
@@ -32,10 +32,10 @@ function SignUp() {
     }
   };
 
-  useEffect(() => {}, [errors, navigate, values]);
+  
 
   const handleInput = (e) => {
-    setValues((v) => ({
+    setUser((v) => ({
       ...v,
       [e.target.name]: e.target.value,
     }));
