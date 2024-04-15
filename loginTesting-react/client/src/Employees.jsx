@@ -64,11 +64,8 @@ function Employees() {
     axios
       .post("http://localhost:8081/EditEmployee", updatedEmployee)
       .then((res) => {
-        if (res.data.success) {
-          closeEditWindow();
-        } else {
-          console.error("Error editing employee:", res.data.error);
-        }
+        if (res.data.success) closeEditWindow();
+        else console.error("Error editing employee:", res.data.error);
       })
       .catch((err) => console.log(err));
   };

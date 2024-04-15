@@ -14,15 +14,9 @@ function AdminHome() {
     axios
       .get("http://localhost:8081/")
       .then((res) => {
-        if (res.data.valid) {
-          if (res.data.admin) {
-            setName(res.data.username);
-          } else {
-            navigate("/home-employee");
-          }
-        } else {
-          navigate("/login");
-        }
+        if (!res.data.valid) navigate("/login");
+        else if (res.data.admin) setName(res.data.username);
+        else navigate("/home-employee");
       })
       .catch((err) => console.log(err));
   }, []);
@@ -31,9 +25,7 @@ function AdminHome() {
     axios
       .get("http://localhost:8081/Logout")
       .then((res) => {
-        if (res.data.success) {
-          navigate("/login");
-        }
+        if (res.data.success) navigate("/login");
       })
       .catch((err) => console.log(err));
   };

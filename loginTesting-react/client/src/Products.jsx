@@ -65,12 +65,10 @@ function Products() {
     axios
       .post("http://localhost:8081/EditProduct", updatedProduct)
       .then((res) => {
-        if (res.data.success) {
-          closeEditWindow();
-        } else {
-          document.getElementById("error-message").innerText = res.data.error;
-          document.getElementById("error-message").classList.remove("d-none");
-        }
+        if (res.data.success) return closeEditWindow();
+
+        document.getElementById("error-message").innerText = res.data.error;
+        document.getElementById("error-message").classList.remove("d-none");
       })
       .catch((err) => console.log(err));
   };
@@ -84,12 +82,10 @@ function Products() {
         },
       })
       .then((res) => {
-        if (res.data.success) {
-          closeEditWindow();
-        } else {
-          document.getElementById("error-message").innerText = res.data.error;
-          document.getElementById("error-message").classList.remove("d-none");
-        }
+        if (res.data.success) return closeEditWindow();
+
+        document.getElementById("error-message").innerText = res.data.error;
+        document.getElementById("error-message").classList.remove("d-none");
       });
   };
 

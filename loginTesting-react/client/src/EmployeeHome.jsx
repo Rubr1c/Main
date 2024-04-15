@@ -20,20 +20,15 @@ function EmployeeHome() {
     axios
       .get("http://localhost:8081/")
       .then((res) => {
-        if (res.data.valid) {
-          setName(res.data.username);
-        } else {
-          navigate("/login");
-        }
+        if (res.data.valid) setName(res.data.username);
+        else navigate("/login");
       })
       .catch((err) => console.log(err));
   }, []);
 
   const handleLogout = () => {
     axios.get("http://localhost:8081/logout").then((res) => {
-      if (res.data.success) {
-        navigate("/login");
-      }
+      if (res.data.success) navigate("/login");
     });
   };
 

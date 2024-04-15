@@ -36,18 +36,21 @@ function Login() {
     axios
       .post("http://localhost:8081/Login", values)
       .then((res) => {
-        if (res.data.Login) {
-          if (res.data.Admin) {
-            navigate("/home-admin");
-          } else {
-            navigate("/home-employee");
+        if (!res.data.Login) {
+          if (res.data.error === "Invalid password") {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              password: "Invalid password",
+            }));
+          } else if (res.data.error === "No existing accounts") {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              email: "No existing accounts",
+            }));
           }
         } else {
-          if (res.data.error === "Invalid password") {
-            setErrors(prevErrors => ({ ...prevErrors, password: "Invalid password" }));
-          } else if (res.data.error === "No existing accounts") {
-            setErrors(prevErrors => ({ ...prevErrors, email: "No existing accounts" }));
-          }
+          if (res.data.Admin) navigate("/home-admin");
+          else navigate("/home-employee");
         }
       })
       .catch((err) => console.log(err));
